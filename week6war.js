@@ -73,11 +73,8 @@ class Deck {
         player1.hand = this.deck.slice(0, 26); 
         player2.hand = this.deck.slice(26);
 
-        //console.log(player1.hand);
-        //console.log(player2.hand);
-        
-        console.log(player1);
-        console.log(player2);
+         console.log(player1);
+         console.log(player2);
     }
 }   
 
@@ -85,34 +82,36 @@ let gameDeck = new Deck();
 gameDeck.createDeck();
 gameDeck.shuffle();
 gameDeck.deal();
-console.log(player1.hand);
-console.log(player1.hand.length);
- let p1score = 0;
- let p2score = 0;
+//console.log(player1.hand); //testing player array
+//console.log(player1.hand.length); //testing player array length
+//console.log(gameDeck.deck.length) //testing deck length array
+ player1.score = 0;
+ player2.score = 0;
 
  for (let i = 0; i < 26; i++) {
     console.log("\n P1 card:", player1.hand[i].faceValue, " P2 card:", player2.hand[i].faceValue)
     
   if (player1.hand[i].rank > player2.hand[i].rank) {
-    p1score += 1
-    console.log(`${player1.name} wins round! Score: ${p1score}`)
+    player1.score += 1
+    console.log(`${player1.name} wins round! Score: ${player1.score}`)
   } else if (player1.hand[i].rank < player2.hand[i].rank) {
-    p2score += 1
-    console.log(`${player2.name} wins round! Score: ${p2score}`)
+    player2.score += 1
+    console.log(`${player2.name} wins round! Score: ${player2.score}`)
   } else {
     console.log("It's a tie!")
   }
  }
 console.log(`
-Final scores: ${player1.name}: ${p1score}, ${player2.name}: ${p2score}`)
- if (p1score > p2score) {
+Final scores: ${player1.name}: ${player1.score}, ${player2.name}: ${player2.score}`)
+ if (player1.score > player2.score) {
     console.log(` 
     ${player1.name} wins!`)
- } else if (p1score < p2score) {
+ } else if (player1.score < player2.score) {
     console.log(` 
     ${player2.name} wins!`)
  }
 
+//  console.log(player1);
+//  console.log(player2);
+ 
 
-// if(card1.rank > card2.rank) {
-    //do something
